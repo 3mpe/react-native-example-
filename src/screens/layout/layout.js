@@ -1,16 +1,23 @@
 import React, { Component } from "react";
-import { StyleProvider } from "native-base";
+import { Provider } from 'react-redux';
+
+
+import configureStore from './../../store/configureStore';
 
 import RouteApp from "../Route";
+// import { StyleProvider } from "native-base";
 // import getTheme from "../theme/components";
 // import variables from "../theme/variables/commonColor";
 
-export default class Layout extends Component {
-  render() {
-    return (
-      // <StyleProvider style={getTheme(variables)}>
+
+
+const store = configureStore();
+
+const RNRedux = () => (
+    <Provider store={store}>
       <RouteApp />
-      // </StyleProvider>
-    );
-  }
-}
+    </Provider>
+);
+
+
+export default RNRedux;
